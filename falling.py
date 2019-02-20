@@ -3,23 +3,52 @@ from __future__ import print_function
 import time
 import datetime
 import grove_2smpb_02e
-# import grovepi
+from light_progress.commandline import ProgressBar
+from light_progress import widget
 
 Pground = 1010.3
 P0 = 1013.25
 pow = 1.0 / 5.256
 
 sensor = grove_2smpb_02e.Grove2smpd02e()
-# ledbar = 5
 
-# grovepi.pinMode(ledbar, "OUTPUT")
-# time.sleep(1)
+widgets = ['..HP..', widget.Num(), widget.Bar()]
+hitpoint = ProgressBar(100, widgets=widgets)
 
 def cal_height():
   press, temp = sensor.readData()
   height = ((P0 / press)**pow - (P0 / Pground)**pow) * (temp + 273.15) / 0.0065
 
   return height
+
+def cal_damage(height):
+  if height < 15:
+    damage = 0
+  elif height < 17:
+    damage = 12
+  elif height < 18:
+    damage = 17
+  elif height < 20:
+    damage = 21
+  elif height < 22:
+    damage = 36
+  elif height < 23:
+    damage = 44
+  elif height < 25:
+    damage = 52
+  elif height < 27:
+    damage = 77
+  elif height < 28:
+    damage = 91
+  else:
+    damage = 100:
+
+  return damage
+
+def HitpointBar(damage):
+  hitpoint.start()
+  hitpoint.update(100 - damage)
+  hitpoint.finish()
 
 def main():
 
@@ -28,7 +57,9 @@ def main():
 
     while True:
         height = cal_height()
-        print("height = %.1f[m]" %(height))
+        print("height = %.1f[m]" % (height))
+        damage = cal_damage(height)
+        HitpointBar(damage)
         time.sleep(1)
 
 if __name__ == '__main__':
