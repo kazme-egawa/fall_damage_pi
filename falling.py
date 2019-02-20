@@ -41,7 +41,7 @@ def cal_damage(height):
   elif height < 28:
     damage = 91
   else:
-    damage = 100:
+    damage = 100
 
   return damage
 
