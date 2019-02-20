@@ -24,7 +24,7 @@ def cal_height():
 def main():
 
     print("start")
-    grovepi.ledBar_init(ledbar, 0)
+    # grovepi.ledBar_init(ledbar, 0)
 
     while True:
         height = cal_height()
