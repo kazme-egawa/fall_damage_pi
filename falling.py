@@ -28,7 +28,7 @@ def main():
 
     while True:
         height = cal_height()
-        print(height = %.1f[m]" %(height))
+        print("height = %.1f[m]" %(height))
         time.sleep(1)
 
 if __name__ == '__main__':
