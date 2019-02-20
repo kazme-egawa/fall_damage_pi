@@ -51,13 +51,10 @@ def HitpointBar(damage):
   hitpoint.finish()
 
 def main():
-
     print("start")
-    # grovepi.ledBar_init(ledbar, 0)
-
     while True:
         height = cal_height()
-        print("height = %.1f[m]" % (height))
+        # print("height = %.1f[m]" % (height))
         damage = cal_damage(height)
         HitpointBar(damage)
         time.sleep(1)
