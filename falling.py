@@ -2,18 +2,18 @@ from __future__ import print_function
 
 import time
 import datetime
-import grovepi
 import grove_2smpb_02e
+# import grovepi
 
 Pground = 1010.3
 P0 = 1013.25
 pow = 1.0 / 5.256
 
 sensor = grove_2smpb_02e.Grove2smpd02e()
-ledbar = 5
+# ledbar = 5
 
-grovepi.pinMode(ledbar, "OUTPUT")
-time.sleep(1)
+# grovepi.pinMode(ledbar, "OUTPUT")
+# time.sleep(1)
 
 def cal_height():
   press, temp = sensor.readData()
