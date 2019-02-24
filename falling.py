@@ -22,23 +22,23 @@ def cal_height():
   return height
 
 def cal_damage(height):
-  if height < 15:
+  if height < 9:
     damage = 0
-  elif height < 17:
+  elif height < 10:
     damage = 12
-  elif height < 18:
+  elif height < 11:
     damage = 17
-  elif height < 20:
+  elif height < 12:
     damage = 21
-  elif height < 22:
+  elif height < 13:
     damage = 36
-  elif height < 23:
+  elif height < 14:
     damage = 44
-  elif height < 25:
+  elif height < 15:
     damage = 52
-  elif height < 27:
+  elif height < 16:
     damage = 77
-  elif height < 28:
+  elif height < 17:
     damage = 91
   else:
     damage = 100
